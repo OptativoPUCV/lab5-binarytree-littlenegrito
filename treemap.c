@@ -92,8 +92,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
    
     while(aux != NULL) {
         void * claveAux = aux->pair->key;
-        if(is_equal(tree, claveAux, claveNodo);
-        parent = aux;
+        if(is_equal(tree, claveAux, claveNodo)==0) parent = aux;
         if(claveNodo < claveAux)
             aux = aux->left;
         else
