@@ -283,3 +283,14 @@ treemap.c:115:31: error: suggest parentheses around ‘&&’ within ‘||’ [-W
 cc1: all warnings being treated as errors
 Compilation failed
 edc2303
+Wed 08 May 2024 07:34:21 PM UTC: 
+ treemap.c | 19 ++++++++++++++++++-
+ 1 file changed, 18 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘removeNode’:
+treemap.c:115:31: error: suggest parentheses around ‘&&’ within ‘||’ [-Werror=parentheses]
+  115 |     else if(aux->left == NULL && aux->right != NULL || aux->right == NULL && aux->left!= NULL) {
+      |                               ^
+cc1: all warnings being treated as errors
+Compilation failed
+5bb98f6
