@@ -104,8 +104,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             parent->left = NULL;
             free(aux);
             return;
-        }
-                
+        }      
         if(is_equal(tree, parent->right->pair, aux->pair) ==1){
             parent->right = NULL;
             free(aux);
@@ -127,11 +126,9 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     }
     else {
         TreeNode * sucesor = minimum(aux->right);
-        void* succKey = sucesor->pair->key;
-        void* succData = sucesor->pair->value;
-        removeNode(tree, succKey); 
-        aux->pair->key = succKey;
-        aux->pair->value = succData;
+        aux->pair->key = sucesor->pair->key;
+        aux->pair->value = sucesor->pair->value;
+        removeNode(tree, sucesor); 
     }
     
 }
