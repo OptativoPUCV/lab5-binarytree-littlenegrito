@@ -272,3 +272,14 @@ treemap.c:136:1: error: expected identifier or ‘(’ before ‘}’ token
       | ^
 Compilation failed
 9da6a0f
+Wed 08 May 2024 07:29:59 PM UTC: 
+ treemap.c | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘removeNode’:
+treemap.c:115:31: error: suggest parentheses around ‘&&’ within ‘||’ [-Werror=parentheses]
+  115 |     else if(aux->left == NULL && aux->right != NULL || aux->right == NULL && aux->left!= NULL) {
+      |                               ^
+cc1: all warnings being treated as errors
+Compilation failed
+edc2303

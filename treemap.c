@@ -112,19 +112,19 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             }
     }
         
-    else if(aux->left == NULL || aux->right == NULL) {
-        TreeNode* hijo = (aux->left != NULL) ? aux->left : aux->right;;
-
-            if(parent->left == aux)
-                parent->left = hijo;
-            else{
-                
-    
-                parent->right = aux->left;
-        } else {
-        
+    else if(aux->left == NULL && aux->right != NULL || aux->right == NULL && aux->left!= NULL) {
+        if(parent->left == aux){
+            parent->left = aux->right;
+            aux->right->parent = parent;
+            free(aux);
+            return;
         }
-        free(aux);
+        else{
+            parent->right = aux->left;
+            aux->left->parent = parent;
+            free(aux);
+            return;
+        }
     }
     else {
         TreeNode * sucesor = minimum(aux->right);
