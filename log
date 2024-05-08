@@ -352,3 +352,14 @@ treemap.c:180:16: error: variable ‘next’ set but not used [-Werror=unused-bu
 cc1: all warnings being treated as errors
 Compilation failed
 4a6dd47
+Wed 08 May 2024 11:44:20 PM UTC: 
+ treemap.c | 1 -
+ 1 file changed, 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘upperBound’:
+treemap.c:186:13: error: ‘next’ undeclared (first use in this function)
+  186 |             next = aux;
+      |             ^~~~
+treemap.c:186:13: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+41b496b
