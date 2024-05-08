@@ -117,3 +117,17 @@ Wed 08 May 2024 06:26:29 PM UTC:
  tests:  15|4
 total_score: 25/70
 10594d3
+Wed 08 May 2024 06:34:04 PM UTC: 
+ treemap.c | 46 ++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 46 insertions(+)
+In file included from test.c:4:
+treemap.c: In function ‘removeNode’:
+treemap.c:95:47: error: expected ‘)’ before ‘;’ token
+   95 |         if(is_equal(tree, claveAux, claveNodo);
+      |           ~                                   ^
+      |                                               )
+treemap.c:101:5: error: expected expression before ‘}’ token
+  101 |     }
+      |     ^
+Compilation failed
+556ec92
