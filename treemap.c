@@ -87,28 +87,31 @@ TreeNode * minimum(TreeNode * x){
 
 void removeNode(TreeMap * tree, TreeNode* node) {
     TreeNode * aux = tree->root;
-    TreeNode * parent = NULL;
+    
     void * claveNodo = node->pair->key;
-    void * claveAux = aux->pair->key;
-    while(aux != NULL && claveNodo != claveAux) {
-        claveAux = aux->pair->key;
-        parent = aux;
+    while(aux != node) {
+        void * claveAux = aux->pair->key;
         if(claveNodo < claveAux) {
             aux = aux->left;
         } else {
             aux = aux->right;
         }
     }
+
+    TreeNode * parent = aux->parent;
     
     if (aux->left == NULL && aux->right == NULL) {
         if (aux != tree->root) {
             if(parent->left == aux) {
                 parent->left = NULL;
+                free(aux);
+                return;
             } else {
                 parent->right = NULL;
+                free(aux);
+                return;
             }
         } else tree->root = NULL;
-        free(aux);
     }
     else if(aux->left == NULL || aux->right == NULL) {
         TreeNode* hijo = (aux->left != NULL) ? aux->left : aux->right;;
