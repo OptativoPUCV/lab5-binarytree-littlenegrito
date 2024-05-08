@@ -99,7 +99,8 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             aux = aux->right;
         }
     }
-    
+    if(aux == NULL)  // Si el nodo no se encuentra en el árbol
+        return;
     if (aux->left == NULL && aux->right == NULL) {
         if (aux != tree->root) {
             if(parent->left == aux) {
