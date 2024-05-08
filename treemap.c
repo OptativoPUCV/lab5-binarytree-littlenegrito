@@ -96,7 +96,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             parent = aux;
             break;
         } 
-        if(claveNodo < claveAux)
+        if(claveAux < claveNodo)
             aux = aux->left;
         else
             aux = aux->right;
