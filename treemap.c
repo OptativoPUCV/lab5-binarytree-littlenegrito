@@ -201,7 +201,21 @@ Pair * nextTreeMap(TreeMap * tree) {
 
 Pair * upperBound(TreeMap * tree, void* key) {
     TreeNode * aux = tree->root;
-    aux->pair = nextTreeMap(tree);
-    
-    return aux->pair;  
+    TreeNode * ub = NULL;
+
+    while (aux != NULL) {
+        if(aux->pair->key >= key && aux->left == NULL) {
+            return aux->pair;
+        }
+        else if(tree->lower_than(key,aux->pair->key) == 1)
+        {
+            ub = aux->parent;
+            aux = aux->left;
+        }
+        else{
+            aux = aux->right;
+        }
+
+    }
+    return ub->pair;
 }
