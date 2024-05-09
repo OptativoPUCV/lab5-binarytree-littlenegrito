@@ -175,18 +175,6 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
     return NULL;
 }
 
-Pair * upperBound(TreeMap * tree, void* key) {
-    TreeNode * aux = tree->root;
-    Pair * valor = NULL;
-    while(aux != NULL) {
-        if(tree->lower_than(key, aux->pair->key) == 1) {
-            valor = aux->pair;
-            aux = aux->left;
-        } else 
-            aux = aux->right;
-    }
-    return valor;  
-}
 
 Pair * firstTreeMap(TreeMap * tree) {
     TreeNode * minimo = minimum(tree->root);
@@ -209,4 +197,11 @@ Pair * nextTreeMap(TreeMap * tree) {
     tree->current = parent;
     if(parent != NULL) return parent->pair;
     return NULL;
+}
+
+Pair * upperBound(TreeMap * tree, void* key) {
+    TreeNode * aux = tree->root;
+    aux->pair = nextTreeMap(tree);
+    
+    return aux->pair;  
 }
