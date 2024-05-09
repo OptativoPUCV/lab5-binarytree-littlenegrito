@@ -204,7 +204,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
     TreeNode * ub = NULL;
     while (aux != NULL) {
         if (tree->lower_than(aux->pair->key, key) >= 0) {
-            ub = aux;
+            ub = aux->parent;
             aux = aux->left;
         } else {
             aux = aux->right;
