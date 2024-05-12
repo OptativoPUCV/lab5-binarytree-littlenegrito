@@ -200,17 +200,25 @@ Pair * nextTreeMap(TreeMap * tree) {
 }
 
 Pair * upperBound(TreeMap * tree, void* key) {
+    if (tree == NULL || tree->root == NULL) return NULL;
     TreeNode * aux = tree->root;
     TreeNode * ub = NULL;
-    while(aux!=NULL){
-        if(aux->pair->key == key) return aux->pair;
-        else if(tree->lower_than(key,aux->pair->key) == 1){
-            if(aux->left == NULL && aux->pair->key != key) break;
-            ub = aux->parent;
-            aux = aux->left;
+        while (aux != NULL){
+            if (tree->lower_than(key, aux->pair->key)){
+                ub = aux;
+                aux = aux->left;
+            }
+            else{
+                if (tree->lower_than(aux->pair->key, key)){
+                    aux = aux->right;
+                }
+                else{
+                    tree->current = aux;
+                    return aux->pair;
+                }
+            }
         }
-        else aux = aux->right;
-    }
-    
+    if (ub == NULL) return NULL; 
     return ub->pair;
 }
+
